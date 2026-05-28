@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Carrello - VelvetNest Living</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+background:#f5efe6;
+color:#3d2f25;
+}
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+.sidebar{
+width:240px;
+background:#3d2f25;
+padding:40px;
+}
+
+.logo{
+font-size:30px;
+font-weight:600;
+color:#d6c2a8;
+margin-bottom:50px;
+}
+
+.sidebar a{
+display:block;
+margin:25px 0;
+text-decoration:none;
+color:white;
+}
+
+.center{
+flex:2;
+padding:50px;
+animation:fadeUp 1s ease;
+}
+
+.center h1{
+font-size:42px;
+margin-bottom:40px;
+color:#7a5c45;
+}
+
+.item{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.right{
+width:350px;
+background:#e8dccd;
+padding:50px;
+}
+
+.right h2{
+margin-bottom:20px;
+color:#7a5c45;
+}
+
+.right h3{
+margin-bottom:30px;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:#7a5c45;
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+background:#5e4634;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+
+if(localStorage.getItem("isLoggedIn") != "true"){
+window.location.href = "registrazioneEcommerce.html";
+}
+
+</script>
+
+<div class="container">
+
+<div class="sidebar">
+
+<div class="logo">VelvetNest</div>
+
+<a href="registrazioneEcommerce.html">Registrazione</a>
+<a href="loginEcommerce.html">Login</a>
+<a href="vetrinaEcommerce.html">Vetrina</a>
+<a href="carrelloEcommerce.html">Carrello</a>
+
+</div>
+
+<div class="center">
+
+<h1>Il tuo Carrello</h1>
+
+<div id="lista"></div>
+
+</div>
+
+<div class="right">
+
+<h2>Riepilogo Ordine</h2>
+
+<h3 id="totale">Totale: € 0</h3>
+
+<button onclick="generaPDF()">
+Scarica Ricevuta PDF
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let carrello = JSON.parse(localStorage.getItem("carrello")) || [];
+
+let totale = 0;
+
+carrello.forEach(prodotto => {
+
+totale += Number(prodotto.prezzo);
+
+document.getElementById("lista").innerHTML += `
+
+<div class="item">
+
+<h2>${prodotto.nome}</h2>
+
+<p>Prezzo: € ${prodotto.prezzo}</p>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("totale").innerText =
+"Totale: € " + totale;
+
+function generaPDF(){
+
+const { jsPDF } = window.jspdf;
+
+let doc = new jsPDF();
+
+let utente = JSON.parse(localStorage.getItem("utente"));
+
+doc.setFont("courier");
+
+doc.text("VELVETNEST LIVING", 20, 20);
+
+doc.text("Ricevuta Acquisto", 20, 35);
+
+doc.text("Cliente: " + utente.nome, 20, 50);
+
+doc.text("Data: " + new Date().toLocaleDateString(), 20, 65);
+
+let y = 90;
+
+carrello.forEach(p => {
+
+doc.text(
+p.nome + " - € " + p.prezzo,
+20,
+y
+);
+
+y += 12;
+
+});
+
+doc.text("Totale Finale: € " + totale, 20, y + 20);
+
+doc.save("ordine_velvetnest.pdf");
+
+}
+
+</script>
+
+</body>
+</html>
