@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Login - VelvetNest Living</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins', sans-serif;
+}
+
+body{
+background:#f5efe6;
+height:100vh;
+overflow:hidden;
+color:#3d2f25;
+}
+
+.container{
+display:flex;
+height:100vh;
+animation:fadeUp 1s ease;
+}
+
+.sidebar{
+width:240px;
+background:#3d2f25;
+padding:40px;
+}
+
+.logo{
+font-size:30px;
+font-weight:600;
+color:#d6c2a8;
+margin-bottom:50px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar li{
+margin:25px 0;
+}
+
+.sidebar a{
+text-decoration:none;
+color:white;
+}
+
+.center{
+width:35%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:50px;
+}
+
+.form-box{
+width:100%;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-box h2{
+margin-bottom:20px;
+color:#7a5c45;
+}
+
+input{
+width:100%;
+padding:15px;
+margin:12px 0;
+border:none;
+border-radius:10px;
+background:#f2f2f2;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:#7a5c45;
+color:white;
+cursor:pointer;
+margin-top:15px;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.right{
+flex:1;
+padding:70px;
+display:flex;
+justify-content:center;
+flex-direction:column;
+}
+
+.right h1{
+font-size:45px;
+margin-bottom:20px;
+color:#7a5c45;
+}
+
+.right ul{
+line-height:2.3;
+font-size:18px;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+
+<div class="logo">VelvetNest</div>
+
+<ul>
+<li><a href="registrazioneEcommerce.html">Registrazione</a></li>
+<li><a href="loginEcommerce.html">Login</a></li>
+<li><a href="vetrinaEcommerce.html">Vetrina</a></li>
+<li><a href="carrelloEcommerce.html">Carrello</a></li>
+</ul>
+
+</div>
+
+<div class="center">
+
+<div class="form-box">
+
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Accedi</button>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<h1>Area Clienti VelvetNest</h1>
+
+<ul>
+<li>✔ Accesso alle collezioni premium</li>
+<li>✔ Sconti arredamento esclusivi</li>
+<li>✔ Consegna prioritaria</li>
+<li>✔ Assistenza personalizzata</li>
+</ul>
+
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+
+let utente = JSON.parse(localStorage.getItem("utente"));
+
+if(utente.email === email && utente.password === password){
+
+localStorage.setItem("isLoggedIn", true);
+
+window.location.href = "vetrinaEcommerce.html";
+
+}else{
+alert("Credenziali errate");
+}
+
+}
+
+</script>
+
+</body>
+</html>
