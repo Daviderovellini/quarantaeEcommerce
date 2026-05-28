@@ -2,42 +2,36 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Carrello - VelvetNest Living</title>
+<title>Carrello - DivaniSpecial</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins', sans-serif;
-}
-
 body{
-background:#f5efe6;
-color:#3d2f25;
+margin:0;
+font-family:Arial;
+background:#f3e7d3;
+color:#4b382a;
 }
 
 .container{
 display:flex;
-min-height:100vh;
 }
 
 .sidebar{
-width:240px;
-background:#3d2f25;
-padding:40px;
+width:220px;
+min-height:100vh;
+background:#5c4332;
+padding:30px;
+border-right:4px solid #d4af37;
 }
 
 .logo{
 font-size:30px;
-font-weight:600;
-color:#d6c2a8;
-margin-bottom:50px;
+font-weight:bold;
+color:#d4af37;
+margin-bottom:40px;
 }
 
 .sidebar a{
@@ -49,33 +43,30 @@ color:white;
 
 .center{
 flex:2;
-padding:50px;
-animation:fadeUp 1s ease;
+padding:40px;
+animation:fadeIn 1s ease;
 }
 
 .center h1{
-font-size:42px;
-margin-bottom:40px;
-color:#7a5c45;
+margin-bottom:30px;
 }
 
 .item{
 background:white;
-padding:25px;
-margin-bottom:25px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+padding:20px;
+margin-bottom:20px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
 }
 
 .right{
-width:350px;
-background:#e8dccd;
-padding:50px;
+width:320px;
+background:#e7d8bf;
+padding:40px;
 }
 
 .right h2{
 margin-bottom:20px;
-color:#7a5c45;
 }
 
 .right h3{
@@ -85,25 +76,23 @@ margin-bottom:30px;
 button{
 width:100%;
 padding:15px;
+background:#d4af37;
 border:none;
 border-radius:10px;
-background:#7a5c45;
-color:white;
-font-size:15px;
 cursor:pointer;
+font-weight:bold;
 transition:0.3s;
 }
 
 button:hover{
+background:#f1c84c;
 transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-background:#5e4634;
 }
 
-@keyframes fadeUp{
+@keyframes fadeIn{
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(20px);
 }
 to{
 opacity:1;
@@ -128,7 +117,7 @@ window.location.href = "registrazioneEcommerce.html";
 
 <div class="sidebar">
 
-<div class="logo">VelvetNest</div>
+<div class="logo">DivaniSpecial</div>
 
 <a href="registrazioneEcommerce.html">Registrazione</a>
 <a href="loginEcommerce.html">Login</a>
@@ -196,7 +185,7 @@ let utente = JSON.parse(localStorage.getItem("utente"));
 
 doc.setFont("courier");
 
-doc.text("VELVETNEST LIVING", 20, 20);
+doc.text("DIVANISPECIAL", 20, 20);
 
 doc.text("Ricevuta Acquisto", 20, 35);
 
@@ -220,7 +209,7 @@ y += 12;
 
 doc.text("Totale Finale: € " + totale, 20, y + 20);
 
-doc.save("ordine_velvetnest.pdf");
+doc.save("ricevuta_divani.pdf");
 
 }
 
