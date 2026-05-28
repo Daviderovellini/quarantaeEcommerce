@@ -2,40 +2,34 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Vetrina - VelvetNest Living</title>
+<title>Vetrina - DivaniSpecial</title>
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins', sans-serif;
-}
-
 body{
-background:#f5efe6;
-color:#3d2f25;
+margin:0;
+font-family:Arial;
+background:#f3e7d3;
+color:#4b382a;
 }
 
 .container{
 display:flex;
-min-height:100vh;
 }
 
 .sidebar{
-width:240px;
-background:#3d2f25;
-padding:40px;
+width:220px;
+min-height:100vh;
+background:#5c4332;
+padding:30px;
+border-right:4px solid #d4af37;
 }
 
 .logo{
 font-size:30px;
-font-weight:600;
-color:#d6c2a8;
-margin-bottom:50px;
+font-weight:bold;
+color:#d4af37;
+margin-bottom:40px;
 }
 
 .sidebar a{
@@ -48,87 +42,71 @@ transition:0.3s;
 
 .sidebar a:hover{
 padding-left:10px;
-color:#d6c2a8;
+color:#d4af37;
 }
 
 .content{
 flex:1;
-padding:50px;
-animation:fadeUp 1s ease;
+padding:40px;
+animation:fadeIn 1s ease;
 }
 
 .content h1{
-font-size:42px;
-margin-bottom:40px;
-color:#7a5c45;
+margin-bottom:30px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
 }
 
 .card{
 background:white;
-border-radius:20px;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-5px);
 }
 
 .card img{
 width:100%;
-height:260px;
+height:230px;
 object-fit:cover;
 }
 
 .card-content{
-padding:25px;
-}
-
-.card-content h2{
-margin-bottom:10px;
-color:#7a5c45;
-}
-
-.card-content h3{
-margin-bottom:15px;
-font-weight:400;
+padding:20px;
 }
 
 .card-content p{
 margin:10px 0;
-line-height:1.6;
 }
 
 button{
 width:100%;
 padding:14px;
-margin-top:15px;
+background:#d4af37;
 border:none;
 border-radius:10px;
-background:#7a5c45;
-color:white;
 cursor:pointer;
-font-size:15px;
+font-weight:bold;
 transition:0.3s;
 }
 
 button:hover{
+background:#f1c84c;
 transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-background:#5e4634;
 }
 
-@keyframes fadeUp{
+@keyframes fadeIn{
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(20px);
 }
 to{
 opacity:1;
@@ -153,11 +131,12 @@ window.location.href = "registrazioneEcommerce.html";
 
 <div class="sidebar">
 
-<div class="logo">VelvetNest</div>
+<div class="logo">DivaniSpecial</div>
 
 <a href="registrazioneEcommerce.html">Registrazione</a>
 <a href="loginEcommerce.html">Login</a>
 <a href="vetrinaEcommerce.html">Vetrina</a>
+
 <a href="carrelloEcommerce.html">
 Carrello (<span id="counter">0</span>)
 </a>
@@ -198,7 +177,7 @@ let descrizione = colonne[2];
 let immagine = colonne[3];
 let prezzo = colonne[4];
 let dimensioni = colonne[5];
-let colore = colonne[6];
+let taglia = colonne[6];
 let spedizione = colonne[7];
 
 let card = document.createElement("div");
@@ -212,12 +191,15 @@ card.innerHTML = `
 <div class="card-content">
 
 <h2>${nome}</h2>
+
 <h3>${marca}</h3>
 
 <p>${descrizione}</p>
 
 <p><b>Dimensioni:</b> ${dimensioni}</p>
-<p><b>Colore:</b> ${colore}</p>
+
+<p><b>Taglia:</b> ${taglia}</p>
+
 <p><b>Spedizione:</b> ${spedizione}</p>
 
 <p><b>Prezzo:</b> € ${prezzo}</p>
