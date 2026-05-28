@@ -1,45 +1,45 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registrazione - VelvetNest Living</title>
+<title>Registrazione - DivaniSpecial</title>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins', sans-serif;
+font-family:Arial;
 }
 
 body{
-background:#f5efe6;
+background:#f3e7d3;
 height:100vh;
 overflow:hidden;
-color:#3d2f25;
+color:#4b382a;
 }
 
 .container{
 display:flex;
 height:100vh;
-animation:fadeUp 1s ease;
+animation:fadeIn 1s ease;
 }
 
 .sidebar{
-width:240px;
-background:#3d2f25;
-padding:40px;
+width:220px;
+background:#5c4332;
+padding:30px;
+border-right:4px solid #d4af37;
 }
 
 .logo{
 font-size:30px;
-font-weight:600;
-color:#d6c2a8;
-margin-bottom:50px;
+font-weight:bold;
+color:#d4af37;
+margin-bottom:40px;
 }
 
 .sidebar ul{
@@ -53,13 +53,12 @@ margin:25px 0;
 .sidebar a{
 text-decoration:none;
 color:white;
-font-size:17px;
 transition:0.3s;
 }
 
 .sidebar a:hover{
+color:#d4af37;
 padding-left:10px;
-color:#d6c2a8;
 }
 
 .center{
@@ -67,75 +66,72 @@ width:35%;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:50px;
+padding:40px;
 }
 
 .form-box{
 width:100%;
 background:white;
 padding:40px;
-border-radius:20px;
+border-radius:15px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 .form-box h2{
 margin-bottom:25px;
-color:#7a5c45;
+color:#5c4332;
 }
 
 input{
 width:100%;
 padding:15px;
-margin:12px 0;
+margin:10px 0;
 border:none;
 border-radius:10px;
-background:#f2f2f2;
-font-size:15px;
+background:#f0ece6;
 }
 
 button{
 width:100%;
 padding:15px;
+margin-top:15px;
 border:none;
 border-radius:10px;
-background:#7a5c45;
-color:white;
-font-size:16px;
+background:#d4af37;
+font-weight:bold;
 cursor:pointer;
-margin-top:15px;
 transition:0.3s;
 }
 
 button:hover{
 transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-background:#5e4634;
+background:#f1c84c;
 }
 
 .right{
 flex:1;
-padding:70px;
+padding:60px;
 display:flex;
 justify-content:center;
 flex-direction:column;
 }
 
 .right h1{
-font-size:48px;
-margin-bottom:25px;
-color:#7a5c45;
+font-size:45px;
+margin-bottom:20px;
+color:#5c4332;
 }
 
 .right p{
-font-size:18px;
 line-height:1.9;
-margin-bottom:25px;
+margin-bottom:20px;
+font-size:18px;
 }
 
-@keyframes fadeUp{
+@keyframes fadeIn{
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(20px);
 }
 to{
 opacity:1;
@@ -152,7 +148,7 @@ transform:translateY(0);
 
 <div class="sidebar">
 
-<div class="logo">VelvetNest</div>
+<div class="logo">DivaniSpecial</div>
 
 <ul>
 <li><a href="registrazioneEcommerce.html">Registrazione</a></li>
@@ -182,21 +178,21 @@ transform:translateY(0);
 
 <div class="right">
 
-<h1>Benvenuto in VelvetNest Living</h1>
+<h1>Benvenuto in DivaniSpecial</h1>
 
 <p>
-Trasforma il tuo soggiorno con collezioni di divani
-raffinati, moderni e progettati per il massimo comfort.
+Scopri la nostra collezione esclusiva di divani moderni,
+eleganti e progettati per il massimo comfort.
 </p>
 
 <p>
-VelvetNest Living unisce design contemporaneo,
-materiali premium e uno stile elegante senza tempo.
+DivaniSpecial unisce stile contemporaneo e qualità premium
+per trasformare il tuo soggiorno in uno spazio unico.
 </p>
 
 <p>
-Registrati per accedere a offerte esclusive,
-promozioni arredamento e collezioni limitate.
+Registrati ora per accedere a offerte speciali,
+sconti esclusivi e nuovi arrivi.
 </p>
 
 </div>
@@ -218,7 +214,7 @@ return;
 }
 
 if(password.length < 6){
-alert("Password minima 6 caratteri");
+alert("La password deve contenere almeno 6 caratteri");
 return;
 }
 
@@ -239,3 +235,5 @@ window.location.href = "loginEcommerce.html";
 
 </body>
 </html>
+```
+
