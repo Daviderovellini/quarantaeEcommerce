@@ -2,43 +2,43 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Login - VelvetNest Living</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - DivaniSpecial</title>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins', sans-serif;
+font-family:Arial;
 }
 
 body{
-background:#f5efe6;
+background:#f3e7d3;
 height:100vh;
 overflow:hidden;
-color:#3d2f25;
+color:#4b382a;
 }
 
 .container{
 display:flex;
 height:100vh;
-animation:fadeUp 1s ease;
+animation:fadeIn 1s ease;
 }
 
 .sidebar{
-width:240px;
-background:#3d2f25;
-padding:40px;
+width:220px;
+background:#5c4332;
+padding:30px;
+border-right:4px solid #d4af37;
 }
 
 .logo{
 font-size:30px;
-font-weight:600;
-color:#d6c2a8;
-margin-bottom:50px;
+font-weight:bold;
+color:#d4af37;
+margin-bottom:40px;
 }
 
 .sidebar ul{
@@ -52,6 +52,12 @@ margin:25px 0;
 .sidebar a{
 text-decoration:none;
 color:white;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+color:#d4af37;
+padding-left:10px;
 }
 
 .center{
@@ -59,71 +65,71 @@ width:35%;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:50px;
+padding:40px;
 }
 
 .form-box{
 width:100%;
 background:white;
 padding:40px;
-border-radius:20px;
+border-radius:15px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 .form-box h2{
-margin-bottom:20px;
-color:#7a5c45;
+margin-bottom:25px;
+color:#5c4332;
 }
 
 input{
 width:100%;
 padding:15px;
-margin:12px 0;
+margin:10px 0;
 border:none;
 border-radius:10px;
-background:#f2f2f2;
+background:#f0ece6;
 }
 
 button{
 width:100%;
 padding:15px;
+margin-top:15px;
 border:none;
 border-radius:10px;
-background:#7a5c45;
-color:white;
+background:#d4af37;
+font-weight:bold;
 cursor:pointer;
-margin-top:15px;
 transition:0.3s;
 }
 
 button:hover{
 transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+background:#f1c84c;
 }
 
 .right{
 flex:1;
-padding:70px;
+padding:60px;
 display:flex;
 justify-content:center;
 flex-direction:column;
 }
 
 .right h1{
-font-size:45px;
+font-size:42px;
 margin-bottom:20px;
-color:#7a5c45;
+color:#5c4332;
 }
 
 .right ul{
-line-height:2.3;
+line-height:2.2;
 font-size:18px;
 }
 
-@keyframes fadeUp{
+@keyframes fadeIn{
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(20px);
 }
 to{
 opacity:1;
@@ -140,7 +146,7 @@ transform:translateY(0);
 
 <div class="sidebar">
 
-<div class="logo">VelvetNest</div>
+<div class="logo">DivaniSpecial</div>
 
 <ul>
 <li><a href="registrazioneEcommerce.html">Registrazione</a></li>
@@ -168,13 +174,14 @@ transform:translateY(0);
 
 <div class="right">
 
-<h1>Area Clienti VelvetNest</h1>
+<h1>Area Clienti DivaniSpecial</h1>
 
 <ul>
-<li>✔ Accesso alle collezioni premium</li>
-<li>✔ Sconti arredamento esclusivi</li>
-<li>✔ Consegna prioritaria</li>
+<li>✔ Accesso alle offerte premium</li>
+<li>✔ Sconti esclusivi sui divani</li>
+<li>✔ Spedizioni rapide</li>
 <li>✔ Assistenza personalizzata</li>
+<li>✔ Nuove collezioni in anteprima</li>
 </ul>
 
 </div>
@@ -190,14 +197,16 @@ let password = document.getElementById("password").value;
 
 let utente = JSON.parse(localStorage.getItem("utente"));
 
-if(utente.email === email && utente.password === password){
+if(utente && utente.email === email && utente.password === password){
 
 localStorage.setItem("isLoggedIn", true);
 
 window.location.href = "vetrinaEcommerce.html";
 
 }else{
+
 alert("Credenziali errate");
+
 }
 
 }
